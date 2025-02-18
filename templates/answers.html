@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <h1>Результати голосування</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+
+                <td>№</td>
+                <td>Відповіді</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for field in fields %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ field }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

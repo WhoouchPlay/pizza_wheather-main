@@ -3,8 +3,19 @@
 {% extends "_base.html" %}
 
 {% block content %}
+{% include "_wheather.html" %}
 
 <h1><p>Пропонуємо таку піцу: <em>{{ pizza_name }}</em></p></h1>
 
 <a type="button", href="/menu"><em>Перейти в Мега меню</em></button>
-{% endblock content %}
+
+    <form action="{{url_for('pizzas.add_vote') }}">
+        <h3>{{ question }}</h3>
+        {% for pizza in pizzas %}
+        <p>
+            <input type="radio" name="vote" value="{{ pizza.name }}"> {{ pizza.name }}
+        <p>
+        {% endfor %}
+        <input type="submit">
+    </form>
+{%  endblock content  %}
